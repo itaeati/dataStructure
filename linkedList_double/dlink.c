@@ -312,6 +312,17 @@ int add_node(DList* list, const void* data, const void* input, int mode)
                 return -1;
             }
         }
+
+        else if (i == 1)
+        {
+            // 후보가 1개이면, address[0]가 유일한 후보이므로 바로 사용
+            if (dlist_ins_next(list, address[0], data) != 0)
+            {
+                free(address);
+                return -1;
+            }
+        }
+
         else
         {
             /*
@@ -350,7 +361,7 @@ int add_node(DList* list, const void* data, const void* input, int mode)
      */
     if (mode == 2)
     {
-        if (i >= 1)
+        if (i > 1)
         {
             /*
              * 후보 노드가 여러 개인 경우에는, choice() 함수를 통해 사용자가 선택한 후보를 사용한다.
@@ -368,6 +379,17 @@ int add_node(DList* list, const void* data, const void* input, int mode)
                 return -1;
             }
         }
+
+        else if (i == 1)
+        {
+            // 후보가 1개이면, address[0]가 유일한 후보이므로 바로 사용
+            if (dlist_ins_prev(list, address[0], data) != 0)
+            {
+                free(address);
+                return -1;
+            }
+        }
+
         else
         {
             /*

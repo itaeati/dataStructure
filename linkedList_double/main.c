@@ -2,10 +2,10 @@
 
 #define CHAR_MAX (100 * sizeof(char))
 
-// 두 키 값을 비교하는 함수
-int match(const void* key1, const void* key2)
+// 두 데이터를 비교하는 함수
+int match(const void* data1, const void* data2)
 {
-    if (strcmp((const char*)key1, (const char*)key2) == 0)
+    if (strcmp((const char*)data1, (const char*)data2) == 0)
         return 1; // 일치하면 1 반환
     else
         return 0; // 일치하지 않으면 0 반환
